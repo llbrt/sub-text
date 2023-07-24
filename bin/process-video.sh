@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Supposing Java 17 (or more) and ffmpeg are in the PATH, that the
+# Supposing Java 17 (or more), that ffmpeg and mkvmerge are in the PATH, that the
 # subtitles have been extracted in SRT format from the video file,
 # that the file time segments contains the time segments to extract,
 # set the following environment variables to get a single MKV containing the
