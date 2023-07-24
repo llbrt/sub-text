@@ -1,7 +1,8 @@
 # Subtitle text
 
-This project generates a subtitle file (format SRT) from an existing one. Two operations can be done:
-- extend the display time of each subtitle (modify end time)
+This project generates a subtitle file (format SRT) from an existing one. Three operations can be done:
+- extend the display time of each subtitle (modify end time);
+- shift the start and end time of each subtitle;
 - keep only the subtitles included in a few time segments; the start and end of each duration is
 updated to maintain the synchronization with the source video.
 
