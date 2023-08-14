@@ -27,6 +27,9 @@ public final class SrtFileProcessor implements Runnable {
 	@Option(names = { "-s", "--shift" }, description = "Shift subtitle start (in milliseconds)", defaultValue = "0")
 	private int shiftStart;
 
+	@Option(names = { "-i", "--ignore-count" }, description = "Don't verify counter when loading a SRT files", defaultValue = "false")
+	private boolean ignoreCount;
+
 	@Option(names = { "-o", "--output" }, description = "Output file")
 	private Optional<Path> outputFile;
 
@@ -44,7 +47,7 @@ public final class SrtFileProcessor implements Runnable {
 		// Load file
 		var inputFile = new SrtFile(subtitles);
 		try {
-			inputFile.load();
+			inputFile.load(!ignoreCount);
 		} catch (Exception e) {
 			logger.error("Failed to load '{}'", subtitles, e);
 			throw new ExecutionException(spec.commandLine(), "Invalid input file");

@@ -35,7 +35,7 @@ final class SrtFile {
 		this.texts.addAll(texts);
 	}
 
-	void load() throws IOException {
+	void load(boolean verifyCount) throws IOException {
 		texts.clear();
 		var fileLines = Files.readAllLines(file);
 		if (fileLines.isEmpty()) {
@@ -53,7 +53,7 @@ final class SrtFile {
 				throw new IllegalArgumentException("Line #" + i + ": unexpected file line count");
 			}
 			int nextId = Integer.valueOf(fileLines.get(i));
-			if (nextId != (currentId + 1)) {
+			if (verifyCount && nextId != (currentId + 1)) {
 				throw new IllegalArgumentException("Line #" + i + ": unexpected index=" + nextId);
 			}
 			currentId++;
